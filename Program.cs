@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+    options.SerializerSettings.Converters.Add(new FieldConverter());
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -26,7 +27,7 @@ builder.Services.AddSwaggerGen(c =>
         return null;
     });
 
-    c.UseAllOfForInheritance();
+    //c.UseAllOfForInheritance();
     c.UseOneOfForPolymorphism();
 
     // Detect subtypes for a base type

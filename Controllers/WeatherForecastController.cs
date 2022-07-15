@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace OpenApiPoc.Controllers
 {
@@ -35,6 +36,13 @@ namespace OpenApiPoc.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost(Name = "GetWeatherForecast")]
+        public string Post([FromBody]PostResource resource)
+        {
+            return JsonConvert.SerializeObject(resource);
+        }
+
 
         private BaseField GetField()
         {

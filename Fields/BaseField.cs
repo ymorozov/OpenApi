@@ -7,6 +7,11 @@
             Type = implementingType.ToLowerInvariant().Split("field")[0];
         }
 
-        public string Type { get; }
+        protected BaseField()
+        {
+
+        }
+
+        public string Type { get; set;  }
     }
 }
